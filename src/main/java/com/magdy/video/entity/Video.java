@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Data
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "video")
 public class Video {
     @Id
@@ -21,6 +20,8 @@ public class Video {
     @Lob
     private byte[] data;
 
+    public Video() {
+    }
 
     public Video(String name, byte[] data) {
 
