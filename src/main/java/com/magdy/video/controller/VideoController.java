@@ -18,16 +18,17 @@ public class VideoController {
     @Autowired
     private VideoServiceImpl videoService;
 
+
     @PostMapping("")
     public ResponseEntity<String> saveVideo(@RequestPart("file")MultipartFile file,@RequestPart("name")String name) throws IOException {
         videoService.saveVideo(file,name);
         return ResponseEntity.ok("video saved successfully.");
     }
 
-    @GetMapping("{name}")
-    public ResponseEntity<Resource> getVideo(@PathVariable("name") String name){
-        return ResponseEntity.ok(new ByteArrayResource(videoService.gitVideo(name).getData()));
-    }
+//    @GetMapping("{name}")
+//    public ResponseEntity<Resource> getVideo(@PathVariable("name") String name){
+//        return ResponseEntity.ok(new ByteArrayResource(videoService.gitVideo(name).getData()));
+//    }
 
     @GetMapping("all")
     public ResponseEntity<List<String>>getAllVideoName(){
